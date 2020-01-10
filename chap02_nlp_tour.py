@@ -27,21 +27,25 @@ def n_grams(text, n):
 	return [text[i: i + n] for i in range(len(text) - n + 1)]
 
 def ex2_2():
+	# create trigrams
 	text = ['mary', 'n', 'slap', 'green', 'witch', '.']
 	print(n_grams(text, 3))
 
 
 def ex2_3():
+	# lemmatisation
 	doc = nlp("he was running late")
 	for token in doc:
 		print('{} --> {}'.format(token, token.lemma_))
 
 def ex2_4():
+	# pos tagging (part-of-speech)
 	doc = nlp("Mary slapped the green witch.")
 	for token in doc:
 		print('{} --> {}'.format(token, token.pos_))
 
 def ex2_5():
+	# chunking
 	doc = nlp("Mary slapped the green witch.")
 	for chunk in doc.noun_chunks:
 		print('{} --> {}'.format(chunk, chunk.label_))
