@@ -115,11 +115,22 @@ def ex1_15(): # requires grad
 	z.backward()
 	print(x.grad is None)
 
+def ex1_16():
+	if not torch.cuda.is_available():
+		print("Cuda is not available")
+		device = "cpu"
+	else:
+		device = torch.device("cuda")
+	print("Device is set to:", device)
+
+	x = torch.rand(3, 3).to(device)
+	describe(x)
+
 
 def main():
 	print(datetime.now(), 'Started')
 
-	ex1_15()
+	ex1_16()
 
 	print(datetime.now(), 'Finished')
 
